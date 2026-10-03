@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSB Group Mohali | Find Your Dream Home in Mohali & Chandigarh</title>
+<meta name="description" content="BSB Group Mohali - Premium homes, villas, apartments & investment opportunities in Mohali, Chandigarh & Zirakpur.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: {900:'#070F24',800:'#0B1D3A',700:'#102641',600:'#16315A',500:'#1E3E74'},
+        gold: {DEFAULT:'#C9A86A', light:'#E9D2A0', pale:'#F5E8C9', dark:'#9C7F3F'},
+        cream: {DEFAULT:'#FFF8F0', dark:'#FDF1E2', beige:'#F5EDE0', sand:'#EDE0CC'},
+        coral: {DEFAULT:'#FF6B4A', light:'#FF8E6B', soft:'#FFD9CC'},
+        amberglow: '#FFB347',
+        blush: '#FFE9E0'
+      },
+      fontFamily: {
+        serif: ['"Playfair Display"','"Cormorant Garamond"','serif'],
+        sans: ['Inter','sans-serif'],
+        jost: ['Jost','sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+*{ -webkit-tap-highlight-color:transparent; }
+html{ scroll-behavior:smooth; }
+body{ font-family:'Inter',sans-serif; background:#FFF8F0; color:#0B1D3A; overflow-x:hidden; }
+::selection{ background:#C9A86A; color:#0B1D3A; }
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background:#0B1D3A; }
+::-webkit-scrollbar-thumb{ background:linear-gradient(180deg,#C9A86A,#FF6B4A); border-radius:20px; }
+
+/* Grain */
+.grain::after{ content:''; position:fixed; inset:0; pointer-events:none; z-index:5; opacity:.06; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* Preloader */
+#preloader{ position:fixed; inset:0; z-index:1000; background:#070F24; display:flex; align-items:center; justify-content:center; flex-direction:column; transition:opacity .8s ease, visibility .8s; }
+#preloader.hide{ opacity:0; visibility:hidden; }
+.loader-logo{ font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,4.5rem); letter-spacing:.35em; color:#fff; position:relative; }
+.loader-logo span{ color:#C9A86A; }
+.loader-bar{ width:220px; height:2px; background:rgba(255,255,255,.15); margin-top:24px; overflow:hidden; border-radius:99px; }
+.loader-bar i{ display:block; height:100%; width:0%; background:linear-gradient(90deg,#C9A86A,#FF6B4A,#FFB347); animation:load 2s ease forwards; }
+@keyframes load{ to{ width:100%; } }
+
+/* Nav */
+#navbar{ transition:all .5s cubic-bezier(.4,0,.2,1); }
+#navbar.scrolled{ background:rgba(7,15,36,.92); backdrop-filter:blur(18px); box-shadow:0 10px 40px rgba(0,0,0,.35); border-bottom:1px solid rgba(201,168,106,.25); }
+#navbar.scrolled .nav-inner{ padding-top:.7rem; padding-bottom:.7rem; }
+.nav-link{ position:relative; font-family:'Jost',sans-serif; font-size:.78rem; letter-spacing:.18em; font-weight:500; color:rgba(255,255,255,.85); transition:.3s; padding:6px 0; }
+.nav-link::after{ content:''; position:absolute; left:0; bottom:0; width:0%; height:2px; background:linear-gradient(90deg,#E9D2A0,#FF6B4A); transition:width .4s ease; border-radius:99px; }
+.nav-link:hover{ color:#fff; }
+.nav-link:hover::after{ width:100%; }
+.gold-btn{ background:linear-gradient(135deg,#C9A86A 0%,#E9D2A0 40%,#FFB347 70%,#FF6B4A 100%); background-size:200% 200%; transition:.5s; box-shadow:0 8px 25px rgba(201,168,106,.35); }
+.gold-btn:hover{ background-position:100% 50%; transform:translateY(-2px); box-shadow:0 15px 35px rgba(255,107,74,.35); }
+
+/* Hero */
+.hero-bg{ transform:scale(1.1); animation:heroZoom 18s ease-in-out infinite alternate; }
+@keyframes heroZoom{ 0%{ transform:scale(1.1);} 100%{ transform:scale(1.22) translateY(-20px);} }
+.reveal-line{ overflow:hidden; display:block; }
+.reveal-line > span{ display:block; transform:translateY(110%); animation:riseUp 1.1s cubic-bezier(.19,1,.22,1) forwards; }
+@keyframes riseUp{ to{ transform:translateY(0);} }
+.scroll-dot{ animation:scrollDot 2s infinite; }
+@keyframes scrollDot{ 0%{ transform:translateY(0); opacity:1;} 70%{ transform:translateY(28px); opacity:0;} 100%{ transform:translateY(0); opacity:0;} }
+.float-badge{ animation:floaty 4s ease-in-out infinite; }
+@keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-12px);} }
+
+/* Marquee */
+.marquee-track{ display:flex; width:max-content; animation:marqL 28s linear infinite; }
+.marquee-track.rev{ animation:marqR 32s linear infinite; }
+@keyframes marqL{ to{ transform:translateX(-50%);} }
+@keyframes marqR{ from{ transform:translateX(-50%);} to{ transform:translateX(0);} }
+.outline-text{ -webkit-text-stroke:1.5px rgba(201,168,106,.7); color:transparent; }
+.outline-white{ -webkit-text-stroke:1px rgba(255,255,255,.35); color:transparent; }
+
+/* Cards */
+.prop-card{ transition:all .6s cubic-bezier(.19,1,.22,1); }
+.prop-card:hover{ transform:translateY(-12px); box-shadow:0 30px 60px rgba(11,29,58,.18), 0 10px 25px rgba(255,107,74,.15); }
+.prop-card .prop-img{ transition:transform 1.2s cubic-bezier(.19,1,.22,1); }
+.prop-card:hover .prop-img{ transform:scale(1.12); }
+.prop-card:hover .prop-arrow{ background:#0B1D3A; color:#E9D2A0; transform:rotate(-45deg); }
+.prop-arrow{ transition:.5s; }
+.service-card{ transition:.6s cubic-bezier(.19,1,.22,1); position:relative; overflow:hidden; }
+.service-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#C9A86A,#FF6B4A,#FFB347); transform:scaleX(0); transform-origin:left; transition:.6s; }
+.service-card:hover::before{ transform:scaleX(1); }
+.service-card:hover{ transform:translateY(-10px); box-shadow:0 30px 60px rgba(11,29,58,.15); border-color:rgba(201,168,106,.6); }
+.service-card:hover .s-icon{ background:linear-gradient(135deg,#0B1D3A,#16315A); color:#E9D2A0; transform:rotateY(360deg); }
+.s-icon{ transition:.7s; }
+
+/* Gallery */
+.g-item{ break-inside:avoid; }
+.g-item img{ transition:1s cubic-bezier(.19,1,.22,1); }
+.g-item:hover img{ transform:scale(1.08); }
+.g-overlay{ opacity:0; transition:.5s; background:linear-gradient(to top, rgba(7,15,36,.85), rgba(255,107,74,.15), transparent); }
+.g-item:hover .g-overlay{ opacity:1; }
+
+/* Reveal */
+.reveal{ opacity:0; transform:translateY(50px); transition:all 1s cubic-bezier(.19,1,.22,1); }
+.reveal.active{ opacity:1; transform:translateY(0); }
+.reveal-left{ opacity:0; transform:translateX(-60px); transition:all 1.1s cubic-bezier(.19,1,.22,1); }
+.reveal-right{ opacity:0; transform:translateX(60px); transition:all 1.1s cubic-bezier(.19,1,.22,1); }
+.reveal-left.active,.reveal-right.active{ opacity:1; transform:translateX(0); }
+.reveal-scale{ opacity:0; transform:scale(.9); transition:all 1.1s cubic-bezier(.19,1,.22,1); }
+.reveal-scale.active{ opacity:1; transform:scale(1); }
+
+/* Timeline */
+.timeline-scroll::-webkit-scrollbar{ height:6px; }
+.timeline-scroll::-webkit-scrollbar-track{ background:rgba(255,255,255,.1); border-radius:99px; }
+.timeline-scroll::-webkit-scrollbar-thumb{ background:#C9A86A; border-radius:99px; }
+.testi-scroll::-webkit-scrollbar{ display:none; }
+
+/* Glass */
+.glass{ background:rgba(255,255,255,.1); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.18); }
+.glass-dark{ background:rgba(7,15,36,.55); backdrop-filter:blur(20px); border:1px solid rgba(201,168,106,.25); }
+.gold-border{ border:1px solid rgba(201,168,106,.35); }
+.eyebrow{ font-family:'Jost',sans-serif; letter-spacing:.35em; font-size:.72rem; font-weight:600; }
+
+/* Filter */
+.filter-btn{ transition:.4s; }
+.filter-btn.active{ background:#0B1D3A; color:#E9D2A0; border-color:#0B1D3A; box-shadow:0 10px 25px rgba(11,29,58,.25); }
+
+/* Insta */
+.insta-card img{ transition:1s; }
+.insta-card:hover img{ transform:scale(1.1); }
+
+/* Inputs */
+.lux-input{ background:#fff; border:1.5px solid #EDE0CC; transition:.3s; }
+.lux-input:focus{ border-color:#C9A86A; box-shadow:0 0 0 4px rgba(201,168,106,.18); outline:none; }
+
+/* Mobile menu */
+#mobileMenu{ transform:translateX(100%); transition:transform .6s cubic-bezier(.19,1,.22,1); }
+#mobileMenu.open{ transform:translateX(0); }
+
+/* Parallax big text */
+.big-move{ white-space:nowrap; will-change:transform; }
+
+/* Lightbox */
+#lightbox{ opacity:0; visibility:hidden; transition:.5s; }
+#lightbox.open{ opacity:1; visibility:visible; }
+
+/* Modal */
+#propModal{ opacity:0; visibility:hidden; transition:.5s; }
+#propModal.open{ opacity:1; visibility:visible; }
+#propModal.open .modal-box{ transform:translateY(0) scale(1); }
+.modal-box{ transform:translateY(40px) scale(.96); transition:.6s cubic-bezier(.19,1,.22,1); }
+
+/* Toast */
+#toast{ transform:translateY(150%); transition:.6s cubic-bezier(.19,1,.22,1); }
+#toast.show{ transform:translateY(0); }
+
+/* Range */
+input[type=range]{ -webkit-appearance:none; height:6px; border-radius:99px; background:linear-gradient(90deg,#C9A86A,#FF6B4A); outline:none; }
+input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:#0B1D3A; border:3px solid #E9D2A0; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.3); }
+</style>
+</head>
+<body class="grain antialiased">
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader-logo">BSB <span>GROUP</span></div>
+  <div class="text-[11px] tracking-[.5em] text-white/60 font-jost mt-2">MOHALI • CHANDIGARH</div>
+  <div class="loader-bar"><i></i></div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="fixed top-0 left-0 h-[3px] z-[999] bg-gradient-to-r from-gold via-coral to-amberglow" id="scrollProgress" style="width:0%"></div>
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-[100]">
+  <div class="nav-inner max-w-[1400px] mx-auto flex items-center justify-between px-5 md:px-10 py-5 transition-all duration-500">
+    <a href="#home" class="flex items-center gap-3 group">
+      <div class="w-12 h-12 md:w-[54px] md:h-[54px] rounded-2xl bg-gradient-to-br from-navy-800 via-navy-600 to-coral flex items-center justify-center border border-gold/40 shadow-xl relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-tr from-gold/20 to-transparent"></div>
+        <span class="font-serif text-white text-xl md:text-2xl font-bold tracking-wider relative">B</span>
+        <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-gradient-to-br from-gold-light to-coral rounded-tl-xl"></span>
+      </div>
+      <div class="leading-none">
+        <div class="font-serif text-white text-xl md:text-2xl font-bold tracking-[.12em]">BSB <span class="text-gold-light">GROUP</span></div>
+        <div class="font-jost text-[9px] md:text-[10px] tracking-[.4em] text-white/60 mt-1">MOHALI • EST. TRUST</div>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#home" class="nav-link">HOME</a>
+      <a href="#properties" class="nav-link">PROPERTIES</a>
+      <a href="#about" class="nav-link">ABOUT US</a>
+      <a href="#services" class="nav-link">SERVICES</a>
+      <a href="#projects" class="nav-link">PROJECTS</a>
+      <a href="#testimonials" class="nav-link">TESTIMONIALS</a>
+      <a href="#contact" class="nav-link">CONTACT</a>
+    </nav>
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="tel:+919876543210" class="w-11 h-11 rounded-full glass flex items-center justify-center text-white hover:bg-white/20 transition"><i class="fa-solid fa-phone text-sm"></i></a>
+      <a href="https://wa.me/919876543210?text=Hi%20BSB%20Group%2C%20I%20want%20to%20enquire%20about%20properties%20in%20Mohali" target="_blank" class="gold-btn flex items-center gap-2 text-navy-900 font-jost font-semibold text-[13px] tracking-[.12em] px-6 py-3 rounded-full"><i class="fa-brands fa-whatsapp text-lg"></i> WHATSAPP US</a>
+    </div>
+    <button id="hamburger" class="lg:hidden w-12 h-12 rounded-full glass flex flex-col items-center justify-center gap-[5px]">
+      <span class="w-6 h-[2px] bg-white block transition-all" id="hb1"></span>
+      <span class="w-6 h-[2px] bg-gold-light block transition-all" id="hb2"></span>
+      <span class="w-4 h-[2px] bg-white block self-start ml-3 transition-all" id="hb3"></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 z-[99] bg-[#070F24]/98 backdrop-blur-2xl flex flex-col justify-center px-10">
+  <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-coral/20 via-gold/10 to-transparent rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gradient-to-tr from-navy-600/60 to-transparent rounded-full blur-3xl"></div>
+  <p class="eyebrow text-gold-light mb-6 relative">MENU • BSB GROUP</p>
+  <nav class="flex flex-col gap-1 relative">
+    <a href="#home" class="mob-link font-serif text-4xl text-white py-2 border-b border-white/10 hover:text-gold-light hover:pl-4 transition-all">Home</a>
+    <a href="#properties" class="mob-link font-serif text-4xl text-white py-2 border-b border-white/10 hover:text-gold-light hover:pl-4 transition-all">Properties</a>
+    <a href="#about" class="mob-link font-serif text-4xl text-white py-2 border-b border-white/10 hover:text-gold-light hover:pl-4 transition-all">About Us</a>
+    <a href="#services" class="mob-link font-serif text-4xl text-white py-2 border-b border-white/10 hover:text-gold-light hover:pl-4 transition-all">Services</a>
+    <a href="#projects" class="mob-link font-serif text-4xl text-white py-2 border-b border-white/10 hover:text-gold-light hover:pl-4 transition-all">Projects</a>
+    <a href="#testimonials" class="mob-link font-serif text-4xl text-white py-2 border-b border-white/10 hover:text-gold-light hover:pl-4 transition-all">Testimonials</a>
+    <a href="#contact" class="mob-link font-serif text-4xl text-white py-2 hover:text-gold-light hover:pl-4 transition-all">Contact</a>
+  </nav>
+  <a href="https://wa.me/919876543210" target="_blank" class="gold-btn mt-8 flex items-center justify-center gap-2 text-navy-900 font-jost font-semibold tracking-[.15em] px-6 py-4 rounded-full relative"><i class="fa-brands fa-whatsapp text-xl"></i> WHATSAPP US</a>
+  <div class="flex gap-4 mt-6 relative">
+    <a href="#" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/70"><i class="fa-brands fa-linkedin-in"></i></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-screen flex items-end md:items-center overflow-hidden bg-navy-900">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2070&auto=format&fit=crop" alt="Luxury Villa" class="hero-bg w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#070F24]/95 via-[#070F24]/70 to-[#070F24]/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#070F24] via-transparent to-[#070F24]/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-coral/20 via-transparent to-gold/10"></div>
+  </div>
+
+  <!-- side vertical -->
+  <div class="hidden xl:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-6 z-20">
+    <span class="font-jost text-[10px] tracking-[.4em] text-white/50" style="writing-mode:vertical-rl">FOLLOW — @BSB_GROUP_MOHALI</span>
+    <span class="w-[1px] h-20 bg-gradient-to-b from-gold to-transparent"></span>
+    <a href="#" class="text-white/60 hover:text-gold-light transition"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" class="text-white/60 hover:text-gold-light transition"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" class="text-white/60 hover:text-gold-light transition"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+
+  <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 w-full pt-32 pb-16 md:py-40">
+    <div class="max-w-3xl">
+      <div class="reveal-line mb-5"><span style="animation-delay:.2s" class="inline-flex items-center gap-3 glass rounded-full px-5 py-2.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-jost text-[11px] tracking-[.3em] text-white/90 font-medium">TRUSTED IN MOHALI • CHANDIGARH • ZIRAKPUR</span>
+      </span></div>
+      <h1 class="font-serif text-white leading-[1.02] text-[2.6rem] sm:text-6xl lg:text-[5.2rem] font-bold">
+        <span class="reveal-line"><span style="animation-delay:.4s">FIND YOUR</span></span>
+        <span class="reveal-line"><span style="animation-delay:.55s" class="italic font-medium bg-gradient-to-r from-gold-light via-amberglow to-coral bg-clip-text text-transparent">DREAM HOME</span></span>
+        <span class="reveal-line"><span style="animation-delay:.7s">IN MOHALI &</span></span>
+        <span class="reveal-line"><span style="animation-delay:.85s">CHANDIGARH<span class="text-coral">.</span></span></span>
+      </h1>
+      <p class="reveal-line mt-6"><span style="animation-delay:1s" class="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-xl">Discover thoughtfully selected homes, premium properties and investment opportunities with BSB Group — where trust meets luxury.</span></p>
+      <div class="flex flex-wrap gap-4 mt-9" id="heroBtns" style="opacity:0">
+        <a href="#properties" class="gold-btn px-8 py-4 rounded-full font-jost font-semibold tracking-[.15em] text-sm text-navy-900 flex items-center gap-3">EXPLORE PROPERTIES <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="px-8 py-4 rounded-full font-jost font-semibold tracking-[.15em] text-sm text-white border border-white/30 hover:border-gold-light hover:bg-white/10 backdrop-blur transition-all flex items-center gap-3">GET IN TOUCH <i class="fa-regular fa-envelope"></i></a>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-10" id="heroTrust" style="opacity:0">
+        <div class="glass rounded-2xl px-5 py-3 flex items-center gap-4">
+          <div class="flex -space-x-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" class="w-10 h-10 rounded-full border-2 border-gold-light object-cover" alt="">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" class="w-10 h-10 rounded-full border-2 border-gold-light object-cover" alt="">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" class="w-10 h-10 rounded-full border-2 border-gold-light object-cover" alt="">
+            <span class="w-10 h-10 rounded-full bg-navy-800 border-2 border-gold-light text-gold-light text-[10px] font-bold flex items-center justify-center">100+</span>
+          </div>
+          <div>
+            <div class="flex text-gold-light text-xs gap-[2px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-white ml-1 font-semibold">4.9</span></div>
+            <div class="font-jost text-[11px] tracking-[.2em] text-white/80 mt-1">100+ HOMES DELIVERED</div>
+          </div>
+        </div>
+        <div class="hidden sm:flex items-center gap-6 text-white/70 font-jost text-xs tracking-[.15em]">
+          <span><strong class="text-white text-lg font-serif">15+</strong><br>YEARS</span>
+          <span class="w-[1px] h-10 bg-white/20"></span>
+          <span><strong class="text-white text-lg font-serif">500+</strong><br>FAMILIES</span>
+          <span class="w-[1px] h-10 bg-white/20"></span>
+          <span><strong class="text-white text-lg font-serif">RERA</strong><br>CERTIFIED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero search bar -->
+  <div class="absolute bottom-0 left-0 right-0 z-20 hidden md:block">
+    <div class="max-w-[1200px] mx-auto px-10 pb-8">
+      <div class="glass-dark rounded-2xl p-2 flex items-center gap-2 shadow-2xl" id="heroSearch" style="opacity:0">
+        <div class="flex-1 flex items-center gap-3 px-5 py-3">
+          <i class="fa-solid fa-location-dot text-coral"></i>
+          <select id="searchLoc" class="bg-transparent text-white text-sm outline-none w-full [&>option]:text-black"><option>All Locations</option><option>Aerocity</option><option>Sector 115</option><option>Zirakpur</option><option>Phase 10</option><option>Sunny Enclave</option></select>
+        </div>
+        <div class="w-[1px] h-8 bg-white/15"></div>
+        <div class="flex-1 flex items-center gap-3 px-5 py-3">
+          <i class="fa-solid fa-house text-gold-light"></i>
+          <select id="searchType" class="bg-transparent text-white text-sm outline-none w-full [&>option]:text-black"><option>All Types</option><option>Villa</option><option>Apartment</option><option>Plot</option><option>Commercial</option></select>
+        </div>
+        <div class="w-[1px] h-8 bg-white/15"></div>
+        <div class="flex-1 flex items-center gap-3 px-5 py-3">
+          <i class="fa-solid fa-wallet text-amberglow"></i>
+          <select id="searchBudget" class="bg-transparent text-white text-sm outline-none w-full [&>option]:text-black"><option>Any Budget</option><option>Under ₹80 L</option><option>₹80 L – ₹1.5 Cr</option><option>₹1.5 Cr+</option></select>
+        </div>
+        <button onclick="scrollToProps()" class="gold-btn px-8 py-4 rounded-xl font-jost font-semibold tracking-[.12em] text-sm text-navy-900">SEARCH <i class="fa-solid fa-magnifying-glass ml-1"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 md:hidden">
+    <span class="font-jost text-[10px] tracking-[.35em] text-white/60">SCROLL TO EXPLORE</span>
+    <span class="text-gold-light animate-bounce">↓</span>
+  </div>
+  <div class="hidden md:flex absolute bottom-8 right-10 z-10 flex-col items-center gap-3">
+    <span class="font-jost text-[10px] tracking-[.35em] text-white/60" style="writing-mode:vertical-rl">SCROLL TO EXPLORE ↓</span>
+    <div class="w-[26px] h-[44px] rounded-full border border-white/30 flex justify-center pt-2"><div class="w-1 h-2 rounded-full bg-gold-light scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="bg-navy-900 border-t border-gold/20 py-6 relative overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 flex flex-wrap justify-center md:justify-between items-center gap-4 text-white/50 font-jost text-[11px] tracking-[.3em]">
+    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-gold-light"></i> RERA VERIFIED</span>
+    <span class="flex items-center gap-2"><i class="fa-solid fa-award text-gold-light"></i> AWARD WINNING TEAM</span>
+    <span class="hidden md:flex items-center gap-2"><i class="fa-solid fa-handshake text-gold-light"></i> ZERO HIDDEN CHARGES</span>
+    <span class="hidden md:flex items-center gap-2"><i class="fa-solid fa-file-contract text-gold-light"></i> LEGAL ASSISTANCE</span>
+    <span class="flex items-center gap-2"><i class="fa-solid fa-headset text-gold-light"></i> LIFETIME SUPPORT</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="py-10 bg-cream overflow-hidden relative">
+  <div class="rotate-[-1.5deg] scale-[1.02]">
+    <div class="bg-navy-800 py-5 border-y border-gold/30 overflow-hidden shadow-xl">
+      <div class="marquee-track gap-0">
+        <div class="flex items-center gap-8 pr-8 font-serif text-3xl md:text-5xl text-white whitespace-nowrap">
+          <span>FIND</span><span class="text-coral text-2xl">•</span><span class="italic text-gold-light">BUY</span><span class="text-coral text-2xl">•</span><span>INVEST</span><span class="text-coral text-2xl">•</span><span class="italic text-gold-light">MOVE</span><span class="text-coral text-2xl">•</span><span>LIVE</span><span class="text-coral text-2xl">•</span><span class="italic text-gold-light">GROW</span><span class="text-coral text-2xl">•</span>
+        </div>
+        <div class="flex items-center gap-8 pr-8 font-serif text-3xl md:text-5xl text-white whitespace-nowrap" aria-hidden="true">
+          <span>FIND</span><span class="text-coral text-2xl">•</span><span class="italic text-gold-light">BUY</span><span class="text-coral text-2xl">•</span><span>INVEST</span><span class="text-coral text-2xl">•</span><span class="italic text-gold-light">MOVE</span><span class="text-coral text-2xl">•</span><span>LIVE</span><span class="text-coral text-2xl">•</span><span class="italic text-gold-light">GROW</span><span class="text-coral text-2xl">•</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rotate-[1deg] scale-[1.02] -mt-2">
+    <div class="bg-gradient-to-r from-coral via-amberglow to-gold-light py-4 overflow-hidden shadow-xl">
+      <div class="marquee-track rev gap-0">
+        <div class="flex items-center gap-8 pr-8 font-jost font-semibold text-sm md:text-base tracking-[.3em] text-navy-900 whitespace-nowrap">
+          <span>MOHALI</span><span>✦</span><span>CHANDIGARH</span><span>✦</span><span>ZIRAKPUR</span><span>✦</span><span>AEROCITY</span><span>✦</span><span>KHARAR</span><span>✦</span><span>PANCHKULA</span><span>✦</span>
+        </div>
+        <div class="flex items-center gap-8 pr-8 font-jost font-semibold text-sm md:text-base tracking-[.3em] text-navy-900 whitespace-nowrap" aria-hidden="true">
+          <span>MOHALI</span><span>✦</span><span>CHANDIGARH</span><span>✦</span><span>ZIRAKPUR</span><span>✦</span><span>AEROCITY</span><span>✦</span><span>KHARAR</span><span>✦</span><span>PANCHKULA</span><span>✦</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRODUCTION -->
+<section id="about" class="bg-cream py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute -top-20 -left-20 w-[400px] h-[400px] bg-gradient-to-br from-blush to-gold-pale rounded-full blur-3xl opacity-60"></div>
+  <div class="absolute top-1/2 -right-32 w-[500px] h-[500px] bg-gradient-to-bl from-coral/10 to-amberglow/10 rounded-full blur-3xl"></div>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center relative">
+    <div class="reveal-left">
+      <p class="eyebrow text-coral flex items-center gap-3"><span class="w-10 h-[2px] bg-coral inline-block"></span> WELCOME TO BSB GROUP</p>
+      <h2 class="font-serif text-4xl md:text-[3.4rem] leading-[1.08] mt-5 text-navy-800 font-bold">MORE THAN A PROPERTY.<br><span class="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-coral via-amberglow to-gold-dark">WE HELP YOU FIND</span><br>A PLACE TO CALL HOME.</h2>
+      <p class="text-navy-800/70 leading-relaxed mt-6">For over 15 years, BSB Group Mohali has been the trusted address for families, investors and NRIs seeking clarity in real estate. We don't just sell square feet — we curate lifestyles, verify every title, negotiate fearlessly, and stand beside you long after the keys are handed over.</p>
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <div class="bg-white rounded-2xl p-5 border border-cream-sand shadow-sm flex gap-4 items-start hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+          <span class="w-11 h-11 rounded-xl bg-navy-800 text-gold-light flex items-center justify-center shrink-0"><i class="fa-solid fa-certificate"></i></span>
+          <div><h4 class="font-jost font-semibold text-sm tracking-wide">100% VERIFIED LISTINGS</h4><p class="text-xs text-navy-800/60 mt-1">RERA-checked, dispute-free titles only.</p></div>
+        </div>
+        <div class="bg-white rounded-2xl p-5 border border-cream-sand shadow-sm flex gap-4 items-start hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+          <span class="w-11 h-11 rounded-xl bg-gradient-to-br from-coral to-amberglow text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-heart"></i></span>
+          <div><h4 class="font-jost font-semibold text-sm tracking-wide">FAMILY-FIRST ADVISORY</h4><p class="text-xs text-navy-800/60 mt-1">Schools, commute & future growth mapped.</p></div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="#contact" class="bg-navy-800 text-white px-8 py-4 rounded-full font-jost text-sm tracking-[.15em] font-medium hover:bg-navy-700 hover:shadow-xl transition-all">OUR STORY <i class="fa-solid fa-arrow-right ml-2 text-gold-light"></i></a>
+        <a href="https://wa.me/919876543210" target="_blank" class="flex items-center gap-3 font-jost text-sm tracking-widest font-medium text-navy-800"><span class="w-12 h-12 rounded-full bg-white border border-gold/40 flex items-center justify-center text-emerald-600 text-xl shadow"><i class="fa-brands fa-whatsapp"></i></span> +91 98765 43210</a>
+      </div>
+    </div>
+    <div class="reveal-right relative">
+      <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
+        <img id="aboutImg" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop" alt="Premium Interior" class="w-full h-[520px] md:h-[620px] object-cover scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 glass-dark rounded-2xl p-5 flex items-center justify-between">
+          <div><p class="font-jost text-[10px] tracking-[.3em] text-gold-light">SIGNATURE PROJECT</p><p class="font-serif text-white text-xl mt-1">The Serene Villas, Aerocity</p></div>
+          <a href="#projects" class="w-12 h-12 rounded-full gold-btn flex items-center justify-center text-navy-900"><i class="fa-solid fa-arrow-up-right"></i></a>
+        </div>
+      </div>
+      <div class="absolute -top-6 -left-4 md:-left-8 bg-white rounded-2xl shadow-2xl p-5 flex items-center gap-4 border border-gold/30 float-badge">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-navy-800 to-navy-600 flex items-center justify-center text-gold-light text-2xl"><i class="fa-solid fa-key"></i></div>
+        <div><div class="font-serif text-3xl font-bold text-navy-800"><span class="counter" data-target="100">0</span>+</div><div class="font-jost text-[10px] tracking-[.25em] text-navy-800/60">HOMES DELIVERED</div></div>
+      </div>
+      <div class="absolute -bottom-6 -right-2 md:-right-6 bg-navy-800 rounded-2xl shadow-2xl p-5 border border-gold/30 flex items-center gap-4">
+        <div class="text-right"><div class="font-serif text-2xl font-bold text-white"><span class="counter" data-target="15">0</span>+ Yrs</div><div class="font-jost text-[10px] tracking-[.25em] text-gold-light">OF TRUSTED LEGACY</div></div>
+        <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-gold-light"><i class="fa-solid fa-award text-xl"></i></div>
+      </div>
+      <div class="absolute top-1/2 -right-4 md:-right-8 w-24 h-24 rounded-full bg-gradient-to-br from-coral to-amberglow opacity-90 blur-[1px] hidden md:flex items-center justify-center text-white font-serif italic text-sm text-center leading-tight shadow-xl rotate-12">Since<br>2009</div>
+    </div>
+  </div>
+  <!-- STATS -->
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10 mt-20">
+    <div class="reveal grid grid-cols-2 lg:grid-cols-4 rounded-[1.8rem] overflow-hidden shadow-2xl border border-gold/30">
+      <div class="bg-navy-800 p-8 text-center border-r border-white/10"><div class="font-serif text-4xl md:text-5xl text-gold-light font-bold"><span class="counter" data-target="500">0</span>+</div><p class="font-jost text-[11px] tracking-[.25em] text-white/60 mt-2">HAPPY FAMILIES</p></div>
+      <div class="bg-navy-700 p-8 text-center lg:border-r border-white/10"><div class="font-serif text-4xl md:text-5xl text-white font-bold"><span class="counter" data-target="50">0</span>+</div><p class="font-jost text-[11px] tracking-[.25em] text-white/60 mt-2">PROJECTS CURATED</p></div>
+      <div class="bg-gradient-to-br from-coral to-[#d84a2e] p-8 text-center border-r border-white/10"><div class="font-serif text-4xl md:text-5xl text-white font-bold"><span class="counter" data-target="120">0</span> Cr+</div><p class="font-jost text-[11px] tracking-[.25em] text-white/80 mt-2">SALES VOLUME</p></div>
+      <div class="bg-gradient-to-br from-gold-dark via-gold to-gold-light p-8 text-center"><div class="font-serif text-4xl md:text-5xl text-navy-900 font-bold"><span class="counter" data-target="98">0</span>%</div><p class="font-jost text-[11px] tracking-[.25em] text-navy-900/70 mt-2">CLIENT SATISFACTION</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG SCROLL TEXT -->
+<div class="bg-cream pb-4 overflow-hidden">
+  <div class="big-move font-serif text-[13vw] leading-none font-bold outline-text opacity-40 whitespace-nowrap" id="bigMove">LUXURY LIVING • MOHALI • CHANDIGARH • LUXURY LIVING • MOHALI •</div>
+</div>
+
+<!-- FEATURED PROPERTIES -->
+<section id="properties" class="bg-gradient-to-b from-cream to-cream-dark py-20 md:py-28 relative">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
+      <div>
+        <p class="eyebrow text-coral flex items-center gap-3"><span class="w-10 h-[2px] bg-coral inline-block"></span> HANDPICKED FOR YOU</p>
+        <h2 class="font-serif text-4xl md:text-6xl font-bold text-navy-800 mt-4 leading-tight">EXPLORE OUR<br>FEATURED <span class="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-coral to-gold-dark">PROPERTIES</span></h2>
+      </div>
+      <p class="max-w-sm text-navy-800/60 text-sm leading-relaxed">Every listing is site-verified, price-benchmarked and legally vetted by our in-house experts before it reaches you.</p>
+    </div>
+    <div class="flex flex-wrap gap-3 mt-10 reveal">
+      <button class="filter-btn active font-jost text-xs tracking-[.2em] px-6 py-3 rounded-full border border-navy-800/20 bg-white" data-filter="all">ALL</button>
+      <button class="filter-btn font-jost text-xs tracking-[.2em] px-6 py-3 rounded-full border border-navy-800/20 bg-white" data-filter="villa">VILLAS</button>
+      <button class="filter-btn font-jost text-xs tracking-[.2em] px-6 py-3 rounded-full border border-navy-800/20 bg-white" data-filter="apartment">APARTMENTS</button>
+      <button class="filter-btn font-jost text-xs tracking-[.2em] px-6 py-3 rounded-full border border-navy-800/20 bg-white" data-filter="plot">PLOTS</button>
+      <button class="filter-btn font-jost text-xs tracking-[.2em] px-6 py-3 rounded-full border border-navy-800/20 bg-white" data-filter="commercial">COMMERCIAL</button>
+      <span class="ml-auto hidden md:flex items-center gap-2 font-jost text-xs tracking-widest text-navy-800/50"><i class="fa-solid fa-rotate"></i> <span id="propCount">6 PROPERTIES</span></span>
+    </div>
+    <div id="propGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-10"></div>
+    <div class="text-center mt-12 reveal">
+      <a href="https://wa.me/919876543210?text=I%20want%20full%20property%20catalogue" target="_blank" class="inline-flex items-center gap-3 bg-navy-800 text-white px-10 py-4 rounded-full font-jost text-sm tracking-[.15em] hover:bg-navy-700 hover:shadow-2xl transition-all">GET FULL CATALOGUE ON WHATSAPP <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FULL WIDTH SHOWCASE -->
+<section id="projects" class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <img id="showcaseBg" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-[130%] object-cover -top-[15%]" alt="Showcase Villa">
+  <div class="absolute inset-0 bg-gradient-to-r from-[#070F24]/95 via-[#070F24]/60 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#070F24]/80 via-transparent to-[#070F24]/30"></div>
+  <div class="relative max-w-[1400px] mx-auto px-5 md:px-10 py-24 w-full">
+    <div class="max-w-2xl reveal">
+      <div class="inline-flex items-center gap-2 border border-gold/40 bg-white/10 backdrop-blur rounded-full px-5 py-2"><span class="w-2 h-2 rounded-full bg-coral animate-pulse"></span><span class="font-jost text-[11px] tracking-[.3em] text-gold-light">FEATURED SHOWCASE • AEROCITY, MOHALI</span></div>
+      <h2 class="font-serif text-white text-4xl md:text-6xl font-bold leading-[1.05] mt-6">THE PALM<br><span class="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-coral">SERENITY</span> VILLAS</h2>
+      <p class="text-white/70 mt-5 leading-relaxed">4 & 5 BHK smart villas with private terrace gardens, double-height living, Italian marble and a 25,000 sq.ft. clubhouse — 5 mins from Chandigarh International Airport.</p>
+      <div class="flex flex-wrap gap-8 mt-7 text-white">
+        <div><div class="font-serif text-3xl font-bold">₹2.4 Cr<span class="text-base text-white/60 font-sans font-normal"> onwards</span></div><div class="font-jost text-[10px] tracking-[.25em] text-white/50 mt-1">STARTING PRICE</div></div>
+        <div><div class="font-serif text-3xl font-bold">3200 <span class="text-base font-sans font-normal">sq.ft.</span></div><div class="font-jost text-[10px] tracking-[.25em] text-white/50 mt-1">BUILT-UP AREA</div></div>
+        <div><div class="font-serif text-3xl font-bold">4.8 <i class="fa-solid fa-star text-gold-light text-xl"></i></div><div class="font-jost text-[10px] tracking-[.25em] text-white/50 mt-1">BUYER RATING</div></div>
+      </div>
+      <div class="flex flex-wrap gap-4 mt-9">
+        <button onclick="openModal(0)" class="gold-btn px-8 py-4 rounded-full font-jost font-semibold text-sm tracking-[.12em] text-navy-900">BOOK PRIVATE TOUR <i class="fa-solid fa-calendar-check ml-1"></i></button>
+        <a href="#gallery" class="px-8 py-4 rounded-full border border-white/30 text-white font-jost text-sm tracking-[.12em] hover:bg-white/10 transition flex items-center gap-2"><i class="fa-solid fa-play text-coral"></i> WATCH FILM</a>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-gold-dark via-gold to-amberglow py-3 overflow-hidden">
+    <div class="marquee-track">
+      <div class="flex gap-10 pr-10 font-jost text-xs tracking-[.3em] font-semibold text-navy-900 whitespace-nowrap"><span>READY-TO-MOVE</span><span>•</span><span>GATED COMMUNITY</span><span>•</span><span>SMART HOME</span><span>•</span><span>CLUBHOUSE</span><span>•</span><span>GREEN CERTIFIED</span><span>•</span><span>READY-TO-MOVE</span><span>•</span><span>GATED COMMUNITY</span><span>•</span><span>SMART HOME</span><span>•</span></div>
+      <div class="flex gap-10 pr-10 font-jost text-xs tracking-[.3em] font-semibold text-navy-900 whitespace-nowrap" aria-hidden="true"><span>READY-TO-MOVE</span><span>•</span><span>GATED COMMUNITY</span><span>•</span><span>SMART HOME</span><span>•</span><span>CLUBHOUSE</span><span>•</span><span>GREEN CERTIFIED</span><span>•</span><span>READY-TO-MOVE</span><span>•</span><span>GATED COMMUNITY</span><span>•</span><span>SMART HOME</span><span>•</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="bg-cream py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 font-serif text-[18vw] leading-none font-bold text-navy-800/[.04] whitespace-nowrap pointer-events-none">SERVICES</div>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 relative">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="eyebrow text-coral justify-center flex items-center gap-3"><span class="w-10 h-[2px] bg-coral inline-block"></span> WHAT WE DO <span class="w-10 h-[2px] bg-coral inline-block"></span></p>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold text-navy-800 mt-4">WHITE-GLOVE SERVICES,<br><span class="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-coral to-gold-dark">END TO END.</span></h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+      <div class="service-card reveal bg-white rounded-[1.6rem] p-8 border border-cream-sand shadow-lg">
+        <div class="s-icon w-16 h-16 rounded-2xl bg-cream-dark text-navy-800 flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-house-chimney"></i></div>
+        <p class="font-jost text-[10px] tracking-[.3em] text-coral font-semibold">01</p>
+        <h3 class="font-serif text-2xl font-bold text-navy-800 mt-2">PROPERTY BUYING</h3>
+        <p class="text-sm text-navy-800/60 mt-3 leading-relaxed">Curated shortlists, verified titles, best-price negotiation & complete paperwork — zero stress buying.</p>
+        <ul class="text-xs text-navy-800/70 mt-4 space-y-2"><li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Site visits with expert</li><li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Loan & legal support</li></ul>
+        <a href="#contact" class="inline-flex items-center gap-2 font-jost text-xs tracking-[.2em] font-semibold text-navy-800 mt-6 hover:gap-4 transition-all">ENQUIRE <i class="fa-solid fa-arrow-right text-coral"></i></a>
+      </div>
+      <div class="service-card reveal bg-navy-800 rounded-[1.6rem] p-8 border border-gold/20 shadow-lg" style="transition-delay:.1s">
+        <div class="s-icon w-16 h-16 rounded-2xl bg-gold/15 text-gold-light flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-tags"></i></div>
+        <p class="font-jost text-[10px] tracking-[.3em] text-gold-light font-semibold">02</p>
+        <h3 class="font-serif text-2xl font-bold text-white mt-2">PROPERTY SELLING</h3>
+        <p class="text-sm text-white/60 mt-3 leading-relaxed">Cinematic marketing, qualified buyers & premium pricing strategy to sell faster, at the best value.</p>
+        <ul class="text-xs text-white/70 mt-4 space-y-2"><li><i class="fa-solid fa-check text-gold-light mr-2"></i>Pro photoshoot & video</li><li><i class="fa-solid fa-check text-gold-light mr-2"></i>500+ buyer network</li></ul>
+        <a href="#contact" class="inline-flex items-center gap-2 font-jost text-xs tracking-[.2em] font-semibold text-gold-light mt-6 hover:gap-4 transition-all">ENQUIRE <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal bg-white rounded-[1.6rem] p-8 border border-cream-sand shadow-lg" style="transition-delay:.2s">
+        <div class="s-icon w-16 h-16 rounded-2xl bg-cream-dark text-navy-800 flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-chart-line"></i></div>
+        <p class="font-jost text-[10px] tracking-[.3em] text-coral font-semibold">03</p>
+        <h3 class="font-serif text-2xl font-bold text-navy-800 mt-2">INVESTMENT</h3>
+        <p class="text-sm text-navy-800/60 mt-3 leading-relaxed">High-ROI plots, pre-launch deals & rental-yield analysis backed by 15 years of Mohali data.</p>
+        <ul class="text-xs text-navy-800/70 mt-4 space-y-2"><li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>ROI & rental reports</li><li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>NRI desk available</li></ul>
+        <a href="#calculator" class="inline-flex items-center gap-2 font-jost text-xs tracking-[.2em] font-semibold text-navy-800 mt-6 hover:gap-4 transition-all">TRY CALCULATOR <i class="fa-solid fa-arrow-right text-coral"></i></a>
+      </div>
+      <div class="service-card reveal bg-white rounded-[1.6rem] p-8 border border-cream-sand shadow-lg" style="transition-delay:.3s">
+        <div class="s-icon w-16 h-16 rounded-2xl bg-cream-dark text-navy-800 flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-comments"></i></div>
+        <p class="font-jost text-[10px] tracking-[.3em] text-coral font-semibold">04</p>
+        <h3 class="font-serif text-2xl font-bold text-navy-800 mt-2">CONSULTATION</h3>
+        <p class="text-sm text-navy-800/60 mt-3 leading-relaxed">One-on-one roadmap: budget planning, location scoring, legal checks & future resale strategy.</p>
+        <ul class="text-xs text-navy-800/70 mt-4 space-y-2"><li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Free first session</li><li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Video call option</li></ul>
+        <a href="#contact" class="inline-flex items-center gap-2 font-jost text-xs tracking-[.2em] font-semibold text-navy-800 mt-6 hover:gap-4 transition-all">BOOK SLOT <i class="fa-solid fa-arrow-right text-coral"></i></a>
+      </div>
+    </div>
+
+    <!-- EMI / INVESTMENT CALCULATOR -->
+    <div id="calculator" class="reveal mt-14 bg-navy-900 rounded-[2rem] overflow-hidden grid lg:grid-cols-2 border border-gold/25 shadow-2xl">
+      <div class="p-8 md:p-12 relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-coral/20 rounded-full blur-3xl"></div>
+        <p class="eyebrow text-gold-light relative">SMART INVESTOR TOOL</p>
+        <h3 class="font-serif text-3xl md:text-4xl text-white font-bold mt-3 relative">Estimate Your EMI<br><span class="italic text-gold-light font-medium">& Growth Potential</span></h3>
+        <div class="space-y-6 mt-8 relative">
+          <div><div class="flex justify-between font-jost text-xs tracking-widest text-white/70 mb-2"><span>PROPERTY VALUE</span><span id="vPrice" class="text-gold-light font-semibold">₹1.20 Cr</span></div><input type="range" id="rPrice" min="30" max="500" value="120" class="w-full"></div>
+          <div><div class="flex justify-between font-jost text-xs tracking-widest text-white/70 mb-2"><span>DOWN PAYMENT</span><span id="vDown" class="text-gold-light font-semibold">20%</span></div><input type="range" id="rDown" min="10" max="80" value="20" class="w-full"></div>
+          <div class="grid grid-cols-2 gap-4">
+            <div><div class="flex justify-between font-jost text-xs tracking-widest text-white/70 mb-2"><span>RATE %</span><span id="vRate" class="text-gold-light font-semibold">8.5%</span></div><input type="range" id="rRate" min="6" max="14" step="0.1" value="8.5" class="w-full"></div>
+            <div><div class="flex justify-between font-jost text-xs tracking-widest text-white/70 mb-2"><span>YEARS</span><span id="vYear" class="text-gold-light font-semibold">20 Y</span></div><input type="range" id="rYear" min="5" max="30" value="20" class="w-full"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-cream to-blush p-8 md:p-12 flex flex-col justify-center relative">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-6 border border-gold/30 text-center shadow"><p class="font-jost text-[10px] tracking-[.25em] text-navy-800/60">MONTHLY EMI</p><p id="emiOut" class="font-serif text-2xl md:text-3xl font-bold text-navy-800 mt-1">₹83,360</p></div>
+          <div class="bg-navy-800 rounded-2xl p-6 text-center shadow"><p class="font-jost text-[10px] tracking-[.25em] text-gold-light">LOAN AMOUNT</p><p id="loanOut" class="font-serif text-2xl md:text-3xl font-bold text-white mt-1">₹96 L</p></div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gold/30 mt-4 shadow flex items-center gap-4">
+          <span class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-arrow-trend-up"></i></span>
+          <p class="text-sm text-navy-800/70">Mohali Aerocity appreciated <strong class="text-navy-800">~38% in 3 years.</strong> Ask us for the full appreciation report.</p>
+        </div>
+        <a href="https://wa.me/919876543210?text=I%20want%20investment%20advice" target="_blank" class="gold-btn mt-5 text-center py-4 rounded-full font-jost font-semibold tracking-[.12em] text-sm text-navy-900">GET FREE INVESTMENT PLAN</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="bg-navy-900 py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[.07]"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt=""></div>
+  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid lg:grid-cols-2 gap-14 items-center relative">
+    <div class="reveal-left">
+      <p class="eyebrow text-gold-light flex items-center gap-3"><span class="w-10 h-[2px] bg-gold inline-block"></span> WHY CHOOSE BSB GROUP</p>
+      <h2 class="font-serif text-4xl md:text-[3.5rem] text-white font-bold leading-tight mt-4">THE BSB PROMISE:<br><span class="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-coral">TRUST, TRANSPARENCY,</span><br>AND TIMELESS VALUE.</h2>
+      <div class="space-y-5 mt-10">
+        <div class="flex gap-5 group"><span class="w-14 h-14 rounded-2xl border border-gold/30 bg-white/5 flex items-center justify-center text-gold-light text-xl shrink-0 group-hover:bg-gold group-hover:text-navy-900 transition-all duration-500"><i class="fa-solid fa-magnifying-glass-chart"></i></span><div><h4 class="font-serif text-xl text-white">Deep Local Intelligence</h4><p class="text-white/55 text-sm mt-1 leading-relaxed">We live the Tricity market daily — every sector rate, upcoming infra and hidden gem, at your fingertips.</p></div></div>
+        <div class="flex gap-5 group"><span class="w-14 h-14 rounded-2xl border border-gold/30 bg-white/5 flex items-center justify-center text-gold-light text-xl shrink-0 group-hover:bg-gold group-hover:text-navy-900 transition-all duration-500"><i class="fa-solid fa-scale-balanced"></i></span><div><h4 class="font-serif text-xl text-white">Legal-First Approach</h4><p class="text-white/55 text-sm mt-1 leading-relaxed">In-house documentation, title verification, RERA checks and registry support — no surprises, ever.</p></div></div>
+        <div class="flex gap-5 group"><span class="w-14 h-14 rounded-2xl border border-gold/30 bg-white/5 flex items-center justify-center text-gold-light text-xl shrink-0 group-hover:bg-gold group-hover:text-navy-900 transition-all duration-500"><i class="fa-solid fa-hand-holding-heart"></i></span><div><h4 class="font-serif text-xl text-white">After-Handover Family</h4><p class="text-white/55 text-sm mt-1 leading-relaxed">Interiors, resale, rental management — 78% of our business comes from referrals & repeat clients.</p></div></div>
+      </div>
+      <div class="flex flex-wrap gap-4 mt-10">
+        <a href="#testimonials" class="gold-btn px-8 py-4 rounded-full font-jost text-sm tracking-[.12em] font-semibold text-navy-900">READ CLIENT STORIES</a>
+        <div class="flex items-center gap-3 text-white/70 text-sm"><i class="fa-solid fa-phone text-gold-light"></i> <span>Talk to founder: <strong class="text-white">+91 98765 43210</strong></span></div>
+      </div>
+    </div>
+    <div class="reveal-right grid grid-cols-2 gap-5">
+      <div class="space-y-5 mt-10">
+        <div class="rounded-3xl overflow-hidden border border-gold/25 shadow-2xl"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" class="w-full h-72 object-cover hover:scale-110 transition duration-1000" alt=""></div>
+        <div class="bg-gradient-to-br from-coral to-amberglow rounded-3xl p-7 text-white shadow-2xl"><div class="font-serif text-4xl font-bold">4.9★</div><div class="font-jost text-[11px] tracking-[.25em] mt-1 opacity-90">GOOGLE RATING • 300+ REVIEWS</div></div>
+      </div>
+      <div class="space-y-5">
+        <div class="bg-white/[.06] backdrop-blur border border-gold/25 rounded-3xl p-7"><div class="font-serif text-4xl font-bold text-gold-light">78%</div><div class="font-jost text-[11px] tracking-[.25em] text-white/60 mt-1">REFERRAL BUSINESS</div><p class="text-white/50 text-xs mt-3">Clients who return — and bring family.</p></div>
+        <div class="rounded-3xl overflow-hidden border border-gold/25 shadow-2xl"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop" class="w-full h-72 object-cover hover:scale-110 transition duration-1000" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="bg-cream py-20 md:py-28">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
+      <div><p class="eyebrow text-coral flex items-center gap-3"><span class="w-10 h-[2px] bg-coral inline-block"></span> MOMENTS & SPACES</p><h2 class="font-serif text-4xl md:text-6xl font-bold text-navy-800 mt-3">PROPERTY <span class="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-coral to-gold-dark">GALLERY</span></h2></div>
+      <p class="font-jost text-xs tracking-[.2em] text-navy-800/50">CLICK ANY IMAGE TO VIEW • <span id="galCount">8</span> FRAMES</p>
+    </div>
+    <div class="columns-2 md:columns-3 gap-5 mt-10 space-y-5" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- HANDOVER JOURNEY -->
+<section class="bg-navy-900 py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute top-10 left-1/2 -translate-x-1/2 font-serif italic text-[12vw] text-white/[.03] whitespace-nowrap pointer-events-none">Journey Home</div>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 relative">
+    <div class="text-center reveal"><p class="eyebrow text-gold-light justify-center flex items-center gap-3"><span class="w-10 h-[2px] bg-gold inline-block"></span> CLIENT SUCCESS <span class="w-10 h-[2px] bg-gold inline-block"></span></p><h2 class="font-serif text-4xl md:text-6xl font-bold text-white mt-4">YOUR HANDOVER <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-coral">JOURNEY</span></h2><p class="text-white/55 max-w-xl mx-auto mt-4 text-sm leading-relaxed">From first chai to housewarming — a proven 5-step path that 500+ families have walked with us.</p></div>
+    <div class="flex gap-3 justify-center mt-8">
+      <button onclick="scrollTimeline(-1)" class="w-12 h-12 rounded-full border border-gold/40 text-gold-light hover:bg-gold hover:text-navy-900 transition"><i class="fa-solid fa-arrow-left"></i></button>
+      <button onclick="scrollTimeline(1)" class="w-12 h-12 rounded-full gold-btn text-navy-900"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <div id="timeline" class="timeline-scroll flex gap-6 mt-10 overflow-x-auto pb-6 snap-x reveal">
+      <!-- steps injected by JS -->
+    </div>
+    <div class="mt-8 glass-dark rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5 reveal border border-gold/20">
+      <div class="flex items-center gap-4"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=200&auto=format&fit=crop" class="w-16 h-16 rounded-2xl object-cover border border-gold/40" alt=""><div><p class="font-serif text-white text-xl">Average handover in just <span class="text-gold-light">21 days</span></p><p class="text-white/50 text-xs mt-1 font-jost tracking-widest">INCLUDING LOAN • LEGAL • REGISTRY</p></div></div>
+      <a href="#contact" class="gold-btn px-8 py-4 rounded-full font-jost text-sm font-semibold tracking-[.12em] text-navy-900 shrink-0">START YOUR JOURNEY</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="bg-gradient-to-b from-cream-dark to-blush py-20 md:py-28 overflow-hidden relative">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
+      <div><p class="eyebrow text-coral flex items-center gap-3"><span class="w-10 h-[2px] bg-coral inline-block"></span> LOVE NOTES</p><h2 class="font-serif text-4xl md:text-6xl font-bold text-navy-800 mt-3">WHAT FAMILIES<br><span class="italic font-medium">SAY ABOUT US</span></h2></div>
+      <div class="flex gap-3"><button onclick="moveTesti(-1)" class="w-12 h-12 rounded-full bg-white border border-navy-800/15 text-navy-800 hover:bg-navy-800 hover:text-gold-light transition shadow"><i class="fa-solid fa-arrow-left"></i></button><button onclick="moveTesti(1)" class="w-12 h-12 rounded-full bg-navy-800 text-gold-light hover:bg-navy-700 transition shadow"><i class="fa-solid fa-arrow-right"></i></button></div>
+    </div>
+  </div>
+  <div class="max-w-[1400px] mx-auto pl-5 md:pl-10 mt-10">
+    <div id="testiTrack" class="testi-scroll flex gap-6 overflow-x-auto pb-4 pr-5 snap-x snap-mandatory"></div>
+    <div class="flex items-center gap-3 mt-4 pr-10"><div class="flex-1 h-[3px] bg-navy-800/10 rounded-full overflow-hidden"><div id="testiBar" class="h-full w-[20%] bg-gradient-to-r from-gold to-coral rounded-full transition-all duration-500"></div></div><span class="font-jost text-xs tracking-widest text-navy-800/50" id="testiCount">01 / 06</span></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="bg-cream py-20 md:py-24 border-t border-cream-sand">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+      <div class="flex items-center gap-5">
+        <span class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amberglow via-coral to-purple-500 flex items-center justify-center text-white text-3xl shadow-xl"><i class="fa-brands fa-instagram"></i></span>
+        <div><p class="eyebrow text-coral">@BSB_GROUP_MOHALI</p><h2 class="font-serif text-3xl md:text-4xl font-bold text-navy-800">LIFE, AS WE LIST IT.</h2></div>
+      </div>
+      <a href="https://instagram.com" target="_blank" class="flex items-center gap-3 bg-navy-800 text-white px-8 py-4 rounded-full font-jost text-sm tracking-[.12em] hover:shadow-xl hover:-translate-y-1 transition-all"><i class="fa-brands fa-instagram text-coral"></i> FOLLOW 12.4K COMMUNITY</a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10" id="instaGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-navy-900 py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute -top-32 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-coral/15 to-gold/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-navy-600/40 rounded-full blur-3xl"></div>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid lg:grid-cols-5 gap-10 relative">
+    <div class="lg:col-span-2 reveal-left">
+      <p class="eyebrow text-gold-light flex items-center gap-3"><span class="w-10 h-[2px] bg-gold inline-block"></span> GET IN TOUCH</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4 leading-tight">LET'S FIND YOUR<br><span class="italic text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-coral">NEXT ADDRESS.</span></h2>
+      <p class="text-white/55 text-sm mt-4 leading-relaxed">Share your dream — budget, location, timeline. Our senior advisor calls back within 30 minutes (9 AM – 9 PM).</p>
+      <div class="space-y-4 mt-8">
+        <a href="tel:+919876543210" class="flex items-center gap-4 glass-dark rounded-2xl p-4 hover:border-gold/60 transition group"><span class="w-12 h-12 rounded-xl gold-btn flex items-center justify-center text-navy-900 shrink-0"><i class="fa-solid fa-phone"></i></span><span><span class="block font-jost text-[10px] tracking-[.25em] text-gold-light">CALL US</span><span class="block text-white font-semibold">+91 98765 43210</span></span></a>
+        <a href="https://wa.me/919876543210" target="_blank" class="flex items-center gap-4 glass-dark rounded-2xl p-4 hover:border-gold/60 transition"><span class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white text-xl shrink-0"><i class="fa-brands fa-whatsapp"></i></span><span><span class="block font-jost text-[10px] tracking-[.25em] text-gold-light">WHATSAPP</span><span class="block text-white font-semibold">Chat instantly →</span></span></a>
+        <div class="flex items-center gap-4 glass-dark rounded-2xl p-4"><span class="w-12 h-12 rounded-xl bg-white/10 border border-gold/30 flex items-center justify-center text-gold-light shrink-0"><i class="fa-solid fa-location-dot"></i></span><span><span class="block font-jost text-[10px] tracking-[.25em] text-gold-light">VISIT STUDIO</span><span class="block text-white text-sm font-medium">SCO 45, Sector 68, Mohali, Punjab 160062</span></span></div>
+      </div>
+      <div class="flex gap-3 mt-6">
+        <a href="#" class="w-11 h-11 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:bg-gradient-to-tr hover:from-amberglow hover:to-coral hover:text-white hover:border-transparent transition-all"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-11 h-11 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:bg-navy-600 hover:text-white transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-11 h-11 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:bg-red-600 hover:text-white transition-all"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="w-11 h-11 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:bg-sky-600 hover:text-white transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <div class="mt-6 rounded-2xl overflow-hidden border border-gold/25 h-52 relative">
+        <iframe title="BSB Group Mohali Map" src="https://www.google.com/maps?q=Sector+68+Mohali+Punjab&output=embed" class="w-full h-full grayscale-[.3] contrast-[1.05]" loading="lazy" style="border:0"></iframe>
+        <div class="absolute bottom-3 left-3 glass-dark rounded-xl px-4 py-2 flex items-center gap-2 text-xs text-white"><i class="fa-solid fa-location-dot text-coral"></i> Sector 68, Mohali</div>
+      </div>
+    </div>
+    <div class="lg:col-span-3 reveal-right">
+      <form id="contactForm" class="bg-cream rounded-[2rem] p-7 md:p-10 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-gold-dark via-gold-light via-amberglow to-coral"></div>
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div><h3 class="font-serif text-3xl font-bold text-navy-800">Request a Callback</h3><p class="text-sm text-navy-800/55 mt-1">Free consultation • No spam, ever.</p></div>
+          <span class="bg-emerald-100 text-emerald-700 font-jost text-[11px] tracking-widest px-4 py-2 rounded-full flex items-center gap-2"><span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> ADVISORS ONLINE</span>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 mt-7">
+          <div><label class="font-jost text-[11px] tracking-[.2em] text-navy-800/60 font-semibold">FULL NAME *</label><input required id="fName" type="text" placeholder="e.g. Harpreet Singh" class="lux-input w-full mt-2 rounded-xl px-4 py-3.5 text-sm"></div>
+          <div><label class="font-jost text-[11px] tracking-[.2em] text-navy-800/60 font-semibold">PHONE *</label><input required id="fPhone" type="tel" pattern="[0-9+ ]{10,15}" placeholder="+91 XXXXX XXXXX" class="lux-input w-full mt-2 rounded-xl px-4 py-3.5 text-sm"></div>
+          <div><label class="font-jost text-[11px] tracking-[.2em] text-navy-800/60 font-semibold">EMAIL</label><input id="fEmail" type="email" placeholder="you@email.com" class="lux-input w-full mt-2 rounded-xl px-4 py-3.5 text-sm"></div>
+          <div><label class="font-jost text-[11px] tracking-[.2em] text-navy-800/60 font-semibold">I'M INTERESTED IN</label><select id="fInterest" class="lux-input w-full mt-2 rounded-xl px-4 py-3.5 text-sm"><option>Buying a Home</option><option>Selling Property</option><option>Investment / Plot</option><option>Commercial / SCO</option><option>NRI Consultation</option></select></div>
+          <div class="sm:col-span-2"><label class="font-jost text-[11px] tracking-[.2em] text-navy-800/60 font-semibold">BUDGET RANGE: <span id="budgetLabel" class="text-coral">₹80 L – ₹1.2 Cr</span></label><input type="range" id="fBudget" min="30" max="500" value="100" class="w-full mt-3"></div>
+          <div class="sm:col-span-2"><label class="font-jost text-[11px] tracking-[.2em] text-navy-800/60 font-semibold">MESSAGE</label><textarea id="fMsg" rows="4" placeholder="Tell us — location preference, BHK, timeline..." class="lux-input w-full mt-2 rounded-xl px-4 py-3.5 text-sm resize-none"></textarea></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+          <button type="submit" class="gold-btn flex-1 py-4 rounded-full font-jost font-semibold tracking-[.12em] text-sm text-navy-900">SUBMIT ENQUIRY <i class="fa-solid fa-paper-plane ml-2"></i></button>
+          <a href="https://wa.me/919876543210?text=Hi%20BSB%2C%20please%20call%20me%20back" target="_blank" class="flex-1 border-2 border-emerald-500 text-emerald-700 py-4 rounded-full font-jost font-semibold tracking-[.12em] text-sm text-center hover:bg-emerald-500 hover:text-white transition-all"><i class="fa-brands fa-whatsapp mr-2"></i> WHATSAPP INSTEAD</a>
+        </div>
+        <p class="text-[11px] text-navy-800/45 mt-4 text-center">By submitting, you agree to be contacted by BSB Group. Your data stays private.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#050B1D] pt-16 pb-8 border-t border-gold/15">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-4 gap-10">
+    <div><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-navy-600 to-coral flex items-center justify-center border border-gold/40"><span class="font-serif text-white text-xl font-bold">B</span></div><div><div class="font-serif text-white text-xl font-bold tracking-widest">BSB <span class="text-gold-light">GROUP</span></div><div class="font-jost text-[9px] tracking-[.4em] text-white/50">MOHALI • EST. 2009</div></div></div><p class="text-white/45 text-sm mt-5 leading-relaxed">Premium homes & honest advice in Mohali, Chandigarh & Zirakpur. 500+ families housed, zero compromises.</p><div class="flex text-gold-light text-sm gap-1 mt-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span class="text-white/50 ml-2 text-xs">4.9 • 300+ reviews</span></div></div>
+    <div><h4 class="font-jost text-xs tracking-[.3em] text-gold-light font-semibold">EXPLORE</h4><ul class="mt-5 space-y-3 text-sm text-white/55"><li><a href="#home" class="hover:text-gold-light transition">Home</a></li><li><a href="#properties" class="hover:text-gold-light transition">Featured Properties</a></li><li><a href="#projects" class="hover:text-gold-light transition">Signature Projects</a></li><li><a href="#gallery" class="hover:text-gold-light transition">Gallery</a></li><li><a href="#testimonials" class="hover:text-gold-light transition">Testimonials</a></li></ul></div>
+    <div><h4 class="font-jost text-xs tracking-[.3em] text-gold-light font-semibold">SERVICES</h4><ul class="mt-5 space-y-3 text-sm text-white/55"><li><a href="#services" class="hover:text-gold-light transition">Buy a Home</a></li><li><a href="#services" class="hover:text-gold-light transition">Sell Property</a></li><li><a href="#services" class="hover:text-gold-light transition">Investment Advisory</a></li><li><a href="#services" class="hover:text-gold-light transition">NRI Desk</a></li><li><a href="#services" class="hover:text-gold-light transition">Home Loans</a></li></ul></div>
+    <div><h4 class="font-jost text-xs tracking-[.3em] text-gold-light font-semibold">STAY UPDATED</h4><p class="text-white/45 text-sm mt-5">New launches & price drops, monthly.</p><div class="flex mt-4 bg-white/5 border border-white/10 rounded-full p-1.5"><input id="newsEmail" type="email" placeholder="Your email" class="bg-transparent flex-1 px-4 text-sm text-white outline-none placeholder:text-white/30"><button onclick="subscribe()" class="gold-btn w-11 h-11 rounded-full text-navy-900 shrink-0"><i class="fa-solid fa-arrow-right"></i></button></div><p class="text-white/40 text-xs mt-4"><i class="fa-solid fa-location-dot text-coral mr-2"></i>SCO 45, Sector 68, Mohali</p><p class="text-white/40 text-xs mt-2"><i class="fa-solid fa-phone text-coral mr-2"></i>+91 98765 43210</p></div>
+  </div>
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-white/35 font-jost tracking-widest"><span>© 2026 BSB GROUP MOHALI • ALL RIGHTS RESERVED</span><span>CRAFTED WITH TRUST IN PUNJAB • RERA: PBRERA-SAS81-PR0123</span></div>
+</footer>
+
+<!-- FLOATING -->
+<a href="https://wa.me/919876543210?text=Hi%20BSB%20Group!" target="_blank" class="fixed bottom-6 right-6 z-[90] group"><span class="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-30"></span><span class="relative w-14 h-14 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-2xl shadow-2xl group-hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></span></a>
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 left-6 z-[90] w-12 h-12 rounded-full bg-navy-800 border border-gold/40 text-gold-light shadow-2xl opacity-0 pointer-events-none transition-all hover:bg-navy-700"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- PROPERTY MODAL -->
+<div id="propModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-navy-900/85 backdrop-blur-md" onclick="closeModal()"></div>
+  <div class="modal-box relative bg-cream rounded-[1.8rem] max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl">
+    <div id="modalContent"></div>
+    <button onclick="closeModal()" class="absolute top-4 right-4 w-11 h-11 rounded-full bg-navy-900/80 backdrop-blur text-white hover:bg-coral transition z-10"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-[210] bg-navy-900/95 backdrop-blur-xl flex items-center justify-center p-5">
+  <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-full border border-white/30 text-white hover:bg-coral transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+  <button onclick="navLightbox(-1)" class="absolute left-4 md:left-10 w-12 h-12 rounded-full glass text-white hover:bg-white/20 transition"><i class="fa-solid fa-chevron-left"></i></button>
+  <button onclick="navLightbox(1)" class="absolute right-4 md:right-10 w-12 h-12 rounded-full glass text-white hover:bg-white/20 transition"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="max-w-4xl w-full text-center"><img id="lbImg" src="" class="max-h-[75vh] w-auto mx-auto rounded-2xl shadow-2xl border border-gold/30 object-contain" alt=""><p id="lbCap" class="text-white/70 font-jost tracking-[.2em] text-xs mt-5"></p></div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[220] bg-navy-900 border border-gold/40 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-[90vw]"><span class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-check"></i></span><span id="toastMsg" class="text-sm">Done!</span></div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- DATA ---------- */
+const properties = [
+  { id:0, type:'villa', tag:'SIGNATURE', title:'The Palm Serenity Villa', loc:'Aerocity, Mohali', price:'₹2.40 Cr', priceNum:240, beds:5, baths:4, area:'3,200 sq.ft.', img:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1000&auto=format&fit=crop', desc:'Double-height living, private terrace garden, Italian marble, smart-home automation & 25k sq.ft. clubhouse. 5 mins from airport.' },
+  { id:1, type:'apartment', tag:'READY TO MOVE', title:'Skyline Heights 3BHK', loc:'Sector 115, Mohali', price:'₹85 L', priceNum:85, beds:3, baths:2, area:'1,650 sq.ft.', img:'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop', desc:'High-rise living with panoramic Shivalik views, modular kitchen, kids play zone, power backup & 2 covered parkings.' },
+  { id:2, type:'villa', tag:'PREMIUM KOTHI', title:'Independent Kothi Phase 10', loc:'Phase 10, Mohali', price:'₹1.85 Cr', priceNum:185, beds:4, baths:3, area:'2,400 sq.ft.', img:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop', desc:'East-facing park-facing kothi with stilt parking, terrace garden provision, branded fittings & walking distance to market.' },
+  { id:3, type:'apartment', tag:'LUXURY', title:'Chandigarh Greens Penthouse', loc:'Zirakpur, Tricity', price:'₹1.60 Cr', priceNum:160, beds:4, baths:4, area:'2,800 sq.ft.', img:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop', desc:'Duplex penthouse with rooftop deck, private jacuzzi, home theatre & concierge. Resort life, everyday.' },
+  { id:4, type:'commercial', tag:'HIGH ROI', title:'SCO Commercial Block', loc:'Gillco Valley, Kharar', price:'₹1.10 Cr', priceNum:110, beds:'—', baths:2, area:'1,200 sq.ft.', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop', desc:'Ground + basement SCO on 60-ft road with 8-9% rental yield potential. Ideal for showroom, cafe or bank lease.' },
+  { id:5, type:'plot', tag:'GATED PLOT', title:'Sunny Enclave Residential Plot', loc:'Sunny Enclave, Kharar', price:'₹68 L', priceNum:68, beds:'—', baths:'—', area:'200 sq.yd.', img:'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop', desc:'East-facing freehold plot in developed sector, 40-ft road, immediate possession & clear title. Build your way.' },
+  { id:6, type:'villa', tag:'NEW LAUNCH', title:'Maple Farmhouse Retreat', loc:'Mullanpur, New Chandigarh', price:'₹3.20 Cr', priceNum:320, beds:5, baths:5, area:'1 Acre', img:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1000&auto=format&fit=crop', desc:'Private farmhouse with orchard, pool, guest cottage & solar farm. 15 mins from PGI, a world away in calm.' },
+  { id:7, type:'apartment', tag:'SMART HOME', title:'The Ivory Suites 2BHK', loc:'Sector 68, Mohali', price:'₹72 L', priceNum:72, beds:2, baths:2, area:'1,250 sq.ft.', img:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1000&auto=format&fit=crop', desc:'Fully-loaded smart 2BHK near Fortis & airport road. Alexa-enabled, modular everything, zero-waste society.' },
+  { id:8, type:'commercial', tag:'PRE-LEASED', title:'Showroom on Airport Road', loc:'Airport Road, Mohali', price:'₹2.90 Cr', priceNum:290, beds:'—', baths:2, area:'2,000 sq.ft.', img:'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?q=80&w=1000&auto=format&fit=crop', desc:'Pre-leased to national brand at ₹1.8L/month. High footfall corridor with assured escalation & registry-ready.' }
+];
+
+const gallery = [
+  { img:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop', cap:'GRAND FACADE • AEROCITY VILLA', h:'h-80' },
+  { img:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop', cap:'DOUBLE-HEIGHT LIVING', h:'h-64' },
+  { img:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop', cap:'CHEF-GRADE KITCHEN', h:'h-72' },
+  { img:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop', cap:'SERENE BEDROOM SUITE', h:'h-64' },
+  { img:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop', cap:'DESIGNER LOUNGE', h:'h-80' },
+  { img:'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop', cap:'SPA BATHROOM', h:'h-64' },
+  { img:'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=800&auto=format&fit=crop', cap:'EVENING DECK VIEW', h:'h-72' },
+  { img:'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?q=80&w=800&auto=format&fit=crop', cap:'FAMILY COURTYARD', h:'h-64' },
+  { img:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop', cap:'SKYLINE APARTMENT', h:'h-80' }
+];
+
+const steps = [
+  { n:'01', t:'Discovery Chai', d:'We understand budget, family needs, commute, schools & dreams — over chai, call or video.', icon:'fa-mug-saucer' },
+  { n:'02', t:'Curated Shortlist', d:'Only 5-7 verified matches, not 50 confusing options. Video tours + honest pros & cons.', icon:'fa-list-check' },
+  { n:'03', t:'Site Experience', d:'Chauffeured visits, sunlight checks, neighbour chats & hidden-cost audit with you.', icon:'fa-car-side' },
+  { n:'04', t:'Negotiation & Legal', d:'We negotiate hard, verify titles, arrange loans & handle every paper to registry.', icon:'fa-file-signature' },
+  { n:'05', t:'Handover & Beyond', d:'Keys, housewarming, interiors, resale & rental help. Welcome to the BSB family.', icon:'fa-key' }
+];
+
+const testis = [
+  { name:'Harpreet & Simran Gill', loc:'Villa Owner • Aerocity', img:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop', text:'As NRIs, we were scared of fraud. BSB did video tours, verified every paper and negotiated ₹11 lakh less. We got keys without even flying down once.' },
+  { name:'Rohit Sharma', loc:'3BHK • Sector 115', img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop', text:'First home at 29. They explained EMI, registry, hidden charges — everything in plain words. Handover in 18 days. My parents still thank them.' },
+  { name:'Dr. Anjali Verma', loc:'Penthouse • Zirakpur', img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop', text:'Premium, patient, professional. They rejected 3 properties themselves saying “not worth it”. That honesty won us forever.' },
+  { name:'Iqbal Singh Sidhu', loc:'Investor • 3 Plots', img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop', text:'My plots grew 42% in 3 years on their advice. Their ROI reports are better than my CA’s. True investment partners.' },
+  { name:'Meera & Arjun Nair', loc:'2BHK • Sector 68', img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop', text:'From loan to interiors to housewarming pandit — they arranged everything. It never felt like dealing with dealers, felt like family.' },
+  { name:'Gurpreet Kaur', loc:'SCO Owner • Kharar', img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop', text:'Sold my old flat 12% above market and got a pre-leased SCO in 40 days. Their buyer network is genuinely powerful.' }
+];
+
+/* ---------- RENDER PROPERTIES ---------- */
+function propCard(p){
+  return `<article class="prop-card reveal active bg-white rounded-[1.6rem] overflow-hidden border border-cream-sand shadow-lg flex flex-col" data-type="${p.type}">
+    <div class="relative overflow-hidden h-64">
+      <img src="${p.img}" alt="${p.title}" class="prop-img w-full h-full object-cover" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent"></div>
+      <span class="absolute top-4 left-4 bg-navy-900/85 backdrop-blur text-gold-light font-jost text-[10px] tracking-[.25em] px-4 py-2 rounded-full border border-gold/40">${p.tag}</span>
+      <span class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur border border-white/30 text-white flex items-center justify-center hover:bg-coral cursor-pointer transition" onclick="showToast('Saved to your wishlist ♥')"><i class="fa-regular fa-heart text-sm"></i></span>
+      <span class="absolute bottom-4 left-4 text-white font-jost text-[11px] tracking-widest flex items-center gap-2"><i class="fa-solid fa-location-dot text-coral"></i> ${p.loc.toUpperCase()}</span>
+    </div>
+    <div class="p-6 flex-1 flex flex-col">
+      <div class="flex items-start justify-between gap-3"><h3 class="font-serif text-[1.35rem] font-bold text-navy-800 leading-snug">${p.title}</h3><div class="prop-arrow w-11 h-11 rounded-full bg-cream-dark flex items-center justify-center shrink-0 cursor-pointer" onclick="openModal(${p.id})"><i class="fa-solid fa-arrow-right"></i></div></div>
+      <div class="font-serif text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-coral to-gold-dark mt-2">${p.price} <span class="text-xs font-sans font-normal text-navy-800/50">*negotiable</span></div>
+      <div class="flex items-center gap-5 mt-4 text-[13px] text-navy-800/65 border-t border-cream-sand pt-4">
+        <span><i class="fa-solid fa-bed text-gold-dark mr-1.5"></i>${p.beds} Beds</span>
+        <span><i class="fa-solid fa-bath text-gold-dark mr-1.5"></i>${p.baths} Baths</span>
+        <span><i class="fa-solid fa-ruler-combined text-gold-dark mr-1.5"></i>${p.area}</span>
+      </div>
+      <div class="flex gap-3 mt-5">
+        <button onclick="openModal(${p.id})" class="flex-1 bg-navy-800 text-white py-3 rounded-full font-jost text-xs tracking-[.15em] hover:bg-navy-700 transition">VIEW DETAILS</button>
+        <a href="https://wa.me/919876543210?text=${encodeURIComponent('Hi BSB, I am interested in '+p.title+' ('+p.price+')')}" target="_blank" class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center hover:scale-110 transition shrink-0"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+      </div>
+    </div>
+  </article>`;
+}
+function renderProps(filter='all'){
+  const grid = document.getElementById('propGrid');
+  const list = properties.filter(p=> filter==='all' || p.type===filter);
+  grid.innerHTML = list.map(propCard).join('');
+  document.getElementById('propCount').textContent = list.length + ' PROPERTIES';
+  gsap.fromTo('#propGrid article',{y:40,opacity:0},{y:0,opacity:1,duration:.8,stagger:.08,ease:'power3.out'});
+}
+renderProps();
+document.querySelectorAll('.filter-btn').forEach(b=> b.addEventListener('click', ()=>{
+  document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); renderProps(b.dataset.filter);
+}));
+function scrollToProps(){
+  const t=document.getElementById('searchType').value;
+  const map={'All Types':'all','Villa':'villa','Apartment':'apartment','Plot':'plot','Commercial':'commercial'};
+  const f=map[t]||'all';
+  document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active',x.dataset.filter===f));
+  renderProps(f);
+  document.getElementById('properties').scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- MODAL ---------- */
+function openModal(id){
+  const p = properties.find(x=>x.id===id);
+  document.getElementById('modalContent').innerHTML = `
+    <div class="grid md:grid-cols-2">
+      <div class="relative h-72 md:h-full min-h-[320px]"><img src="${p.img}" class="absolute inset-0 w-full h-full object-cover md:rounded-l-[1.8rem]" alt=""><span class="absolute top-4 left-4 bg-navy-900/85 text-gold-light font-jost text-[10px] tracking-[.25em] px-4 py-2 rounded-full border border-gold/40">${p.tag}</span></div>
+      <div class="p-7 md:p-9">
+        <p class="font-jost text-[11px] tracking-[.3em] text-coral font-semibold flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> ${p.loc.toUpperCase()}</p>
+        <h3 class="font-serif text-3xl font-bold text-navy-800 mt-2">${p.title}</h3>
+        <div class="font-serif text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-coral to-gold-dark mt-3">${p.price}</div>
+        <p class="text-sm text-navy-800/65 leading-relaxed mt-4">${p.desc}</p>
+        <div class="grid grid-cols-3 gap-3 mt-5">
+          <div class="bg-white border border-cream-sand rounded-xl p-3 text-center"><i class="fa-solid fa-bed text-coral"></i><div class="font-bold text-navy-800 text-sm mt-1">${p.beds}</div><div class="text-[10px] font-jost tracking-widest text-navy-800/50">BEDS</div></div>
+          <div class="bg-white border border-cream-sand rounded-xl p-3 text-center"><i class="fa-solid fa-bath text-coral"></i><div class="font-bold text-navy-800 text-sm mt-1">${p.baths}</div><div class="text-[10px] font-jost tracking-widest text-navy-800/50">BATHS</div></div>
+          <div class="bg-white border border-cream-sand rounded-xl p-3 text-center"><i class="fa-solid fa-ruler-combined text-coral"></i><div class="font-bold text-navy-800 text-sm mt-1">${p.area.split(' ')[0]}</div><div class="text-[10px] font-jost tracking-widest text-navy-800/50">${p.area.split(' ').slice(1).join(' ').toUpperCase()||'AREA'}</div></div>
+        </div>
+        <div class="flex items-center gap-2 mt-5 text-xs text-navy-800/60"><i class="fa-solid fa-shield-halved text-emerald-500"></i> RERA Verified • Clear Title • Loan Eligible</div>
+        <div class="flex gap-3 mt-6">
+          <a href="https://wa.me/919876543210?text=${encodeURIComponent('I want site visit for '+p.title)}" target="_blank" class="gold-btn flex-1 text-center py-3.5 rounded-full font-jost text-xs font-semibold tracking-[.12em] text-navy-900">BOOK SITE VISIT</a>
+          <a href="tel:+919876543210" class="flex-1 text-center py-3.5 rounded-full border-2 border-navy-800 font-jost text-xs font-semibold tracking-[.12em] text-navy-800 hover:bg-navy-800 hover:text-white transition">CALL NOW</a>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('propModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){ document.getElementById('propModal').classList.remove('open'); document.body.style.overflow=''; }
+
+/* ---------- GALLERY ---------- */
+let lbIndex=0;
+function renderGallery(){
+  document.getElementById('galleryGrid').innerHTML = gallery.map((g,i)=>`
+    <div class="g-item reveal relative rounded-2xl overflow-hidden shadow-lg cursor-pointer group border border-cream-sand" onclick="openLightbox(${i})">
+      <img src="${g.img}" class="w-full ${g.h} object-cover" loading="lazy" alt="${g.cap}">
+      <div class="g-overlay absolute inset-0 flex items-end justify-between p-5">
+        <span class="font-jost text-[10px] tracking-[.25em] text-white">${g.cap}</span>
+        <span class="w-10 h-10 rounded-full bg-white/20 backdrop-blur border border-white/40 text-white flex items-center justify-center"><i class="fa-solid fa-expand"></i></span>
+      </div>
+    </div>`).join('');
+}
+renderGallery();
+function openLightbox(i){ lbIndex=i; updateLB(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+function navLightbox(d){ lbIndex=(lbIndex+d+gallery.length)%gallery.length; updateLB(); }
+function updateLB(){ document.getElementById('lbImg').src=gallery[lbIndex].img; document.getElementById('lbCap').textContent=(lbIndex+1)+' / '+gallery.length+' • '+gallery[lbIndex].cap; }
+
+/* ---------- TIMELINE ---------- */
+document.getElementById('timeline').innerHTML = steps.map((s,i)=>`
+  <div class="snap-center shrink-0 w-[300px] md:w-[340px] bg-white/[.05] backdrop-blur border border-gold/25 rounded-[1.6rem] p-7 relative overflow-hidden group hover:bg-white/[.09] hover:border-gold/60 hover:-translate-y-2 transition-all duration-500">
+    <div class="absolute -top-4 -right-2 font-serif text-[5rem] font-bold text-white/[.06] group-hover:text-gold/20 transition">${s.n}</div>
+    <span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold to-coral flex items-center justify-center text-navy-900 text-xl shadow-lg"><i class="fa-solid ${s.icon}"></i></span>
+    <p class="font-jost text-[10px] tracking-[.3em] text-gold-light mt-5">STEP ${s.n}</p>
+    <h4 class="font-serif text-2xl text-white font-bold mt-1">${s.t}</h4>
+    <p class="text-white/55 text-sm mt-3 leading-relaxed">${s.d}</p>
+    ${i<4?'<div class="hidden md:block absolute top-1/2 -right-4 text-gold/50 text-xl">→</div>':''}
+  </div>`).join('');
+function scrollTimeline(d){ document.getElementById('timeline').scrollBy({left:d*360,behavior:'smooth'}); }
+
+/* ---------- TESTIMONIALS ---------- */
+function renderTesti(){
+  document.getElementById('testiTrack').innerHTML = testis.map(t=>`
+    <div class="snap-center shrink-0 w-[320px] md:w-[420px] bg-white rounded-[1.6rem] p-8 border border-gold/25 shadow-xl relative overflow-hidden group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold via-amberglow to-coral"></div>
+      <i class="fa-solid fa-quote-left text-4xl text-blush group-hover:text-coral/30 transition"></i>
+      <div class="flex text-amberglow text-xs gap-1 mt-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+      <p class="text-navy-800/75 text-[15px] leading-relaxed mt-4 italic font-serif text-lg">“${t.text}”</p>
+      <div class="flex items-center gap-4 mt-6 pt-5 border-t border-cream-sand">
+        <img src="${t.img}" class="w-14 h-14 rounded-full object-cover border-2 border-gold" alt="">
+        <div><div class="font-jost font-semibold text-navy-800 text-sm">${t.name}</div><div class="font-jost text-[11px] tracking-widest text-coral">${t.loc.toUpperCase()}</div></div>
+        <i class="fa-brands fa-google ml-auto text-xl text-navy-800/20"></i>
+      </div>
+    </div>`).join('');
+}
+renderTesti();
+function moveTesti(d){
+  const el=document.getElementById('testiTrack');
+  el.scrollBy({left:d*440,behavior:'smooth'});
+  setTimeout(updateTestiBar,400);
+}
+function updateTestiBar(){
+  const el=document.getElementById('testiTrack');
+  const pct = el.scrollLeft/(el.scrollWidth-el.clientWidth);
+  document.getElementById('testiBar').style.width = (20+pct*80)+'%';
+  const idx = Math.min(6, Math.round(pct*5)+1);
+  document.getElementById('testiCount').textContent = '0'+idx+' / 06';
+}
+document.getElementById('testiTrack').addEventListener('scroll',updateTestiBar);
+setInterval(()=>{ const el=document.getElementById('testiTrack'); if(el.scrollLeft+el.clientWidth>=el.scrollWidth-10){ el.scrollTo({left:0,behavior:'smooth'});} else { el.scrollBy({left:440,behavior:'smooth'});} setTimeout(updateTestiBar,500); },6000);
+
+/* ---------- INSTA ---------- */
+const instaImgs=[
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=600&auto=format&fit=crop'
+];
+document.getElementById('instaGrid').innerHTML = instaImgs.map((s,i)=>`
+  <a href="https://instagram.com" target="_blank" class="insta-card reveal relative rounded-2xl overflow-hidden aspect-square group shadow-lg border border-cream-sand" style="transition-delay:${i*0.05}s">
+    <img src="${s}" class="w-full h-full object-cover" loading="lazy" alt="Instagram post ${i+1}">
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4">
+      <div class="flex items-center gap-3 text-white text-xs"><span><i class="fa-solid fa-heart text-coral"></i> ${(2+i*1.3).toFixed(1)}k</span><span><i class="fa-solid fa-comment"></i> ${120+i*47}</span></div>
+      <p class="text-white/80 text-[11px] mt-1 truncate">${['Just handed over in Aerocity','New 4BHK tour is live','Penthouse sunset views','Interior goals in Phase 10','Sold above asking!','Farmhouse weekend'][i]} 🏡</p>
+    </div>
+    <span class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur text-white flex items-center justify-center text-sm opacity-0 group-hover:opacity-100 transition"><i class="fa-brands fa-instagram"></i></span>
+  </a>`).join('');
+
+/* ---------- NAV / MENU ---------- */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  navbar.classList.toggle('scrolled',y>40);
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('scrollProgress').style.width=(y/h*100)+'%';
+  const tt=document.getElementById('toTop');
+  if(y>600){ tt.style.opacity='1'; tt.style.pointerEvents='auto'; } else { tt.style.opacity='0'; tt.style.pointerEvents='none'; }
+  // parallax
+  const sb=document.getElementById('showcaseBg');
+  if(sb){ const r=sb.parentElement.getBoundingClientRect(); if(r.top<window.innerHeight && r.bottom>0){ sb.style.transform=`translateY(${(r.top)*0.12}px)`; } }
+  const bm=document.getElementById('bigMove'); if(bm){ bm.style.transform=`translateX(${-y*0.08}px)`; }
+  const ai=document.getElementById('aboutImg'); if(ai){ const rr=ai.getBoundingClientRect(); if(rr.top<window.innerHeight) ai.style.transform=`scale(1.1) translateY(${(rr.top-window.innerHeight/2)*0.05}px)`; }
+});
+const mobileMenu=document.getElementById('mobileMenu'); let menuOpen=false;
+document.getElementById('hamburger').addEventListener('click',()=>{
+  menuOpen=!menuOpen; mobileMenu.classList.toggle('open',menuOpen);
+  document.getElementById('hb1').style.transform=menuOpen?'rotate(45deg) translateY(7px)':'';
+  document.getElementById('hb2').style.opacity=menuOpen?'0':'1';
+  document.getElementById('hb3').style.transform=menuOpen?'rotate(-45deg) translateY(-7px) scaleX(1.5)':'';
+});
+document.querySelectorAll('.mob-link').forEach(a=>a.addEventListener('click',()=>{ menuOpen=false; mobileMenu.classList.remove('open'); document.getElementById('hb1').style.transform=''; document.getElementById('hb2').style.opacity='1'; document.getElementById('hb3').style.transform=''; }));
+
+/* ---------- REVEAL ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('active'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>io.observe(el));
+
+/* ---------- COUNTERS ---------- */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ const el=e.target, target=+el.dataset.target; let c=0; const step=Math.max(1,Math.ceil(target/80));
+    const t=setInterval(()=>{ c+=step; if(c>=target){c=target;clearInterval(t);} el.textContent=c; },30); cio.unobserve(el); }
+}),{threshold:.5});
+document.querySelectorAll('.counter').forEach(el=>cio.observe(el));
+
+/* ---------- EMI CALC ---------- */
+function fmtL(n){ if(n>=100) return '₹'+(n/100).toFixed(2).replace(/\.00$/,'')+' Cr'; return '₹'+Math.round(n)+' L'; }
+function calcEMI(){
+  const priceL=+document.getElementById('rPrice').value;
+  const downPct=+document.getElementById('rDown').value;
+  const rate=+document.getElementById('rRate').value;
+  const yrs=+document.getElementById('rYear').value;
+  document.getElementById('vPrice').textContent=fmtL(priceL);
+  document.getElementById('vDown').textContent=downPct+'%';
+  document.getElementById('vRate').textContent=rate+'%';
+  document.getElementById('vYear').textContent=yrs+' Y';
+  const loan=priceL*100000*(1-downPct/100);
+  const r=rate/12/100, n=yrs*12;
+  const emi=loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  document.getElementById('emiOut').textContent='₹'+Math.round(emi).toLocaleString('en-IN');
+  document.getElementById('loanOut').textContent= loan>=10000000 ? '₹'+(loan/10000000).toFixed(2)+' Cr' : '₹'+Math.round(loan/100000)+' L';
+}
+['rPrice','rDown','rRate','rYear'].forEach(id=>document.getElementById(id).addEventListener('input',calcEMI));
+calcEMI();
+
+/* ---------- FORMS ---------- */
+document.getElementById('fBudget').addEventListener('input',e=>{
+  const v=+e.target.value;
+  document.getElementById('budgetLabel').textContent = v<70?'Under ₹70 L': v<120?'₹70 L – ₹1.2 Cr': v<250?'₹1.2 Cr – ₹2.5 Cr':'₹2.5 Cr+ (Luxury)';
+});
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('fName').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  if(!name||!phone){ showToast('Please fill name & phone to continue.'); return; }
+  showToast(`Thank you, ${name.split(' ')[0]}! Our advisor will call ${phone} within 30 mins.`);
+  e.target.reset(); calcEMI();
+});
+function subscribe(){
+  const v=document.getElementById('newsEmail').value;
+  if(!v||!v.includes('@')){ showToast('Please enter a valid email.'); return; }
+  showToast('Subscribed! Fresh launches coming to your inbox.'); document.getElementById('newsEmail').value='';
+}
+function showToast(msg){
+  document.getElementById('toastMsg').textContent=msg;
+  const t=document.getElementById('toast'); t.classList.add('show');
+  clearTimeout(window._tt); window._tt=setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+/* ---------- KEYBOARD ---------- */
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); closeLightbox(); } if(document.getElementById('lightbox').classList.contains('open')){ if(e.key==='ArrowRight')navLightbox(1); if(e.key==='ArrowLeft')navLightbox(-1);} });
+
+/* ---------- LOAD ---------- */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('preloader').classList.add('hide');
+    gsap.to('#heroBtns',{opacity:1,y:0,duration:1,delay:.2});
+    gsap.to('#heroTrust',{opacity:1,duration:1,delay:.5});
+    gsap.to('#heroSearch',{opacity:1,y:0,duration:1,delay:.8});
+    gsap.fromTo('#heroBtns',{y:20},{y:0,duration:1,delay:.2});
+  },1900);
+});
+// fallback if load already fired slow assets
+setTimeout(()=>document.getElementById('preloader').classList.add('hide'),4500);
+</script>
+</body>
+</html>
